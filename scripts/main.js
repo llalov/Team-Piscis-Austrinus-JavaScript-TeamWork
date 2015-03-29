@@ -13,16 +13,20 @@ function update(){
 };
 
 function tick(){
-    player.movement.right = !!input.right;
-    player.movement.left = !!input.left;
-    player.movement.up = !!input.up;
-    player.movement.down = !!input.down;
+    movePlayer();
     player.update();
 }
 
 function render(ctx){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.render(ctx);
+}
+
+function movePlayer(){
+    player.movement.right = !!input.right;
+    player.movement.left = !!input.left;
+    player.movement.up = !!input.up;
+    player.movement.down = !!input.down;
 }
 
 update();
