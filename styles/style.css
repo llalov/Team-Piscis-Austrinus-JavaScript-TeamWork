@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper{
+    margin: 10px 20px;
+}
+
+canvas{
+    border: 1px solid black;
+}
