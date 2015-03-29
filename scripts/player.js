@@ -24,6 +24,9 @@
             this.position.y += this.velocity;
         }
 
+        this.animation.position.set(this.position.x, this.position.y);
+        this.boundingBox.x = this.position.x;
+        this.boundingBox.y = this.position.y;
         this.animation.update();
     };
 
