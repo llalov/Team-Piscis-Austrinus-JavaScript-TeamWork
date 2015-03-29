@@ -4,8 +4,8 @@
         this.movement = {left: false, right: false, up: false, down: false};
         this.velocity = 2;
 
-        this.width = 173;
-        this.height = 271;
+        this.width = 60;
+        this.height = 100;
 
         this.animation = new Animation(this.width, this.height, 0, 0, 1, 'ressources/images/F5S4.png', 1, 0, 0);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
