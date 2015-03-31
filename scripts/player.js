@@ -1,8 +1,10 @@
 ﻿var Player = (function(){
     function Player(x, y) {
         this.position = new Vector2(x, y);
-        this.movement = {left: false, right: false, up: false, down: false};
-        this.velocity = 2;
+        this.movement = {left: false, right: false, up: false, down: false, fire: false};
+        this.velocity = 8;
+
+        this.bulletArray = [];
 
         this.width = 60;
         this.height = 100;
@@ -24,6 +26,10 @@
             this.position.y += this.velocity;
         }
 
+        if(this.movement.fire){
+            this.fireBullet();
+        }
+
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;
@@ -33,6 +39,12 @@
     Player.prototype.render = function (ctx) {
         this.animation.draw(ctx);
     };
+
+    Player.prototype.fireBullet = function(){
+        var bull = new Bullet(this.position.x,this.position.y);
+        this.bulletArray.push(bull);
+        this.movement.fire = false;
+    }
 
     return Player;
 }());

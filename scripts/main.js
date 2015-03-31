@@ -19,6 +19,13 @@ function tick(){
     player.update();
 	enemy.update();
 	explosion.update();
+    player.bulletArray.forEach(function(bullet){
+        if(bullet.position.y < 0){
+            player.bulletArray.remove(bullet);
+        }
+        bullet.update();
+        bullet.shoot();
+    })
 }
 
 function render(ctx){
@@ -26,6 +33,9 @@ function render(ctx){
     player.render(ctx);
 	enemy.render(ctx);
 	explosion.render(ctx);
+    player.bulletArray.forEach(function(bullet){
+        bullet.render(ctx);
+    })
 }
 
 function movePlayer(){
@@ -33,6 +43,7 @@ function movePlayer(){
     player.movement.left = !!input.left;
     player.movement.up = !!input.up;
     player.movement.down = !!input.down;
+    player.movement.fire = !!input.space;
 }
 
 update();
