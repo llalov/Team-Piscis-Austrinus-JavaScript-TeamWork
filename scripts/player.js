@@ -26,7 +26,6 @@ var Player = (function(){
 
             if(this.position.x >= canvas.width - this.width){
                 this.position.x = canvas.width - this.width;
-                console.log(1);
             }
         } else if (this.movement.left) {
             this.animation = new Animation(this.width, this.height, 0, 0, 1,
@@ -35,7 +34,6 @@ var Player = (function(){
 
             if(this.position.x <= 0){
                 this.position.x = 0;
-                console.log(2);
             }
         } else{
             this.animation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/F5S4.png', 1, 0, 0);
@@ -45,14 +43,12 @@ var Player = (function(){
 
             if(this.position.y <= canvas.height/4.5*3){
                 this.position.y = canvas.height/4.5*3;
-                console.log(3);
             }
         } else if (this.movement.down) {
             this.position.y += this.velocity;
 
             if(this.position.y >= canvas.height - this.height){
                 this.position.y = canvas.height - this.height;
-                console.log(4);
             }
         }
 
