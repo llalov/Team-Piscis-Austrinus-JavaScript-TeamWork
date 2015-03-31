@@ -27,7 +27,6 @@ var Bullet = (function(){
     };
 
     Bullet.prototype.shoot = function () {
-        console.log("bullet moved");
         this.position.y -= this.velocity;
 
     };

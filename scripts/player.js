@@ -3,7 +3,7 @@
         this.position = new Vector2(x, y);
         this.movement = {left: false, right: false, up: false, down: false, fire: false};
         this.velocity = 8;
-
+        this.fireCooldown = false;
         this.bulletArray = [];
 
         this.width = 60;
@@ -27,6 +27,7 @@
         }
 
         if(this.movement.fire){
+
             this.fireBullet();
         }
 
@@ -41,10 +42,21 @@
     };
 
     Player.prototype.fireBullet = function(){
-        var bull = new Bullet(this.position.x,this.position.y);
-        this.bulletArray.push(bull);
-        this.movement.fire = false;
+        console.log(this.fireCooldown);
+        if(this.fireCooldown === false){
+            var bull = new Bullet(this.position.x,this.position.y);
+            this.bulletArray.push(bull);
+            this.fireCooldown = true;
+            window.setTimeout(function(){
+                player.fireCooldown = false;
+            },100);
+        }else{
+
+        }
     }
+
+
+
 
     return Player;
 }());
