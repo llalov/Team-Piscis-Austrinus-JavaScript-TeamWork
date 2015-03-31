@@ -70,7 +70,7 @@ var Player = (function(){
     Player.prototype.fireBullet = function(){
         console.log(this.fireCooldown);
         if(this.fireCooldown === false){
-            var bull = new Bullet(this.position.x,this.position.y);
+            var bull = new Bullet(this.position.x,this.position.y, 12);
             this.bulletArray.push(bull);
             this.fireCooldown = true;
             window.setTimeout(function(){

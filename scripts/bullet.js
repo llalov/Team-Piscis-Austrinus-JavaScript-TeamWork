@@ -3,9 +3,9 @@
  */
 
 var Bullet = (function(){
-    function Bullet(x, y) {
+    function Bullet(x, y, velo) {
         this.position = new Vector2(x, y);
-        this.velocity = 12;
+        this.velocity = velo;
 
         this.width = 80;
         this.height = 50;
