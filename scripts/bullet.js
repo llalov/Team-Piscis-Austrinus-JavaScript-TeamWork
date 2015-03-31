@@ -7,10 +7,10 @@ var Bullet = (function(){
         this.position = new Vector2(x, y);
         this.velocity = 12;
 
-        this.width = 50;
-        this.height = 30;
+        this.width = 80;
+        this.height = 50;
 
-        this.animation = new Animation(this.width, this.height, 0, 0, 1, 'ressources/images/F5S4.png', 1, 0, 0);
+        this.animation = new Animation(this.width, this.height, 2, 1, 1, 'ressources/images/shoot.png', 1, 0, 0);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
 
     };
