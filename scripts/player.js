@@ -16,9 +16,15 @@
 
     Player.prototype.update = function () {
         if (this.movement.right) {
+            this.animation = new Animation(this.width, this.height, 0, 0, 1,
+                'ressources/images/F5S4-right.png', 1, 0, 0);
             this.position.x += this.velocity;
         } else if (this.movement.left) {
+            this.animation = new Animation(this.width, this.height, 0, 0, 1,
+                'ressources/images/F5S4-left.png', 1, 0, 0);
             this.position.x -= this.velocity;
+        } else{
+            this.animation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/F5S4.png', 1, 0, 0);
         }
         if (this.movement.up) {
             this.position.y -= this.velocity;
