@@ -13,6 +13,7 @@
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
         this.flashAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2-flash.png',1,0,0);
         this.defaultAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2.png',1,0,0);
+        this.explosionAnimation = new Animation(this.width, this.height, 0, 5, 23, 'ressources/images/exp.png', 9, 8, 4);
     }
 
     Enemy.prototype.update = function () {
@@ -32,12 +33,17 @@
             if(currentEnemy.boundingBox.intersects(bullet.boundingBox)){
                 currentEnemy.hitCounter++;
                 currentEnemy.animation = currentEnemy.flashAnimation;
-                setTimeout(function(){currentEnemy.animation = currentEnemy.defaultAnimation;},50)
+                setTimeout(function(){currentEnemy.animation = currentEnemy.defaultAnimation;},50);
                 player.bulletArray.remove(bullet);
             }
         })
         if(this.hitCounter >= 3){
-            enemies.remove(this);
+            currentEnemy.velocity = 0;
+            currentEnemy.width = 113.4;
+            currentEnemy.height = 126.5;
+            currentEnemy.animation = currentEnemy.explosionAnimation;
+            setTimeout(function(){enemies.remove(currentEnemy);},500);
+
         }
 
 
