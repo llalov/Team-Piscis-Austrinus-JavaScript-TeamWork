@@ -11,3 +11,24 @@ canvas{
     border: 1px solid black;
     background-image: url("../ressources/images/galaxy.jpg");
 }
+
+#SplashScreen{
+    width: 800px;
+    height: 600px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#SplashScreen h1{
+    padding-top: 50px;
+    font-size: 6em;
+}
+
+#SplashScreen input[type = button]{
+    padding: 20px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 3em;
+}

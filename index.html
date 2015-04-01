@@ -8,7 +8,12 @@
 </head>
 <body>
     <div id="wrapper">
-        <canvas id="canvas" width="800" height="600">
+        <div id="SplashScreen">
+            <h1>Game Title</h1>
+            <input id="StartButton" type="button" value="Start" onclick="menu()"/>
+        </div>
+
+        <canvas id="canvas" width="800" height="600" style="display: none;">
             Upgrade your Browser !!! Your browser do not support canvas !!!
         </canvas>
     </div>
@@ -18,5 +23,6 @@
     <script src="scripts/player.js"></script>
     <script src="scripts/enemy.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/menu.js"></script>
 </body>
 </html>
