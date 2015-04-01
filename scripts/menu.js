@@ -7,4 +7,9 @@ function menu() {
 
     menu.style.display = 'none';
     canvas.style.display = 'block';
+
+    var script = document.createElement('script');
+    script.src += 'scripts/main.js';
+    document.getElementsByTagName('body')[0].appendChild(script);
+    console.log(document.getElementsByTagName('body')[0]);
 };
