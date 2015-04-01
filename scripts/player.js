@@ -18,6 +18,8 @@ var Player = (function(){
         this.animation = new Animation(this.width, this.height, 0, 0, 1, 'ressources/images/F5S4.png', 1, 0, 0);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
 		this.explosionAnimation = new Animation(113.4, 126.5, 0, 5, 23, 'ressources/images/exp.png', 20, 8, 4);
+		this.flashAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/F5S4-flash.png',1,0,0);
+        this.defaultAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/F5S4.png',1,0,0);
         //Background.prototype.canvasWidth = this.canvas.width;
 
     }
@@ -61,8 +63,8 @@ var Player = (function(){
             enemy.bulletArray.forEach(function(bullet){                                                
                 if(currentPlayer.boundingBox.intersects(bullet.boundingBox)){                           
                     currentPlayer.hitCounter++;                                                          
-                    //currentPlayer.animation = currentPlayer.flashAnimation;                              
-                    //setTimeout(function(){currentPlayer.animation = currentPlayer.defaultAnimation;},50); 
+                    currentPlayer.animation = currentPlayer.flashAnimation;                              
+                    setTimeout(function(){currentPlayer.animation = currentPlayer.defaultAnimation;},50); 
                     enemy.bulletArray.remove(bullet);                                                  
                 }                                                                                       
             })
