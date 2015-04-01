@@ -9,7 +9,7 @@ attachListeners(input);
 
 var player = new Player(400, 500);
 var enemies = createEnemies(6,2,100,85);
-var explosion = new Explosion(50, 50);
+
 
 function update(){
     this.tick();
@@ -23,7 +23,6 @@ function tick(){
     enemies.forEach(function(enemy){
         enemy.update();
     });
-	explosion.update();
     player.bulletArray.forEach(function(bullet){
         if(bullet.position.y < 0){
             player.bulletArray.remove(bullet);
@@ -49,7 +48,6 @@ function render(ctx){
     enemies.forEach(function(enemy){
         enemy.render(ctx);
     });
-	explosion.render(ctx);
     player.bulletArray.forEach(function(bullet){
         bullet.render(ctx);
     })

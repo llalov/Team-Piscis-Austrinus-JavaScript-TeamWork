@@ -7,7 +7,7 @@
         this.width = 113.4;
         this.height = 126.5;
         
-        this.animation = new Animation(this.width, this.height, 0, 5, 23, 'ressources/images/exp.png', 9, 8, 4);
+        this.animation = new Animation(this.width, this.height, 0, 5, 23, 'ressources/images/exp.png', 20, 8, 4);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
 
     }

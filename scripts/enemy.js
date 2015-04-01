@@ -13,7 +13,7 @@
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
         this.flashAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2-flash.png',1,0,0);
         this.defaultAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2.png',1,0,0);
-        this.explosionAnimation = new Animation(this.width, this.height, 0, 5, 23, 'ressources/images/exp.png', 9, 8, 4);
+        this.explosionAnimation = new Animation(113.4, 126.5, 0, 5, 23, 'ressources/images/exp.png', 20, 8, 4);
     }
 
     Enemy.prototype.update = function () {
