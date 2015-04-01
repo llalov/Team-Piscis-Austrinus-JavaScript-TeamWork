@@ -10,6 +10,9 @@
         this.animation = new Animation(this.width, this.height, 0, 5, 23, 'ressources/images/exp.png', 9, 8, 4);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
 
+        var exp = this;
+        setTimeout(function(exp){exp = null},1000);
+
     }
     
     Explosion.prototype.update = function () {

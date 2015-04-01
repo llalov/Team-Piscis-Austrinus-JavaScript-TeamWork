@@ -11,6 +11,8 @@
         this.position = new Vector2(x, y);
         this.animation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2.png',1,0,0);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
+        this.flashAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2-flash.png',1,0,0);
+        this.defaultAnimation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2.png',1,0,0);
     }
 
     Enemy.prototype.update = function () {
@@ -29,6 +31,8 @@
         player.bulletArray.forEach(function(bullet){
             if(currentEnemy.boundingBox.intersects(bullet.boundingBox)){
                 currentEnemy.hitCounter++;
+                currentEnemy.animation = currentEnemy.flashAnimation;
+                setTimeout(function(){currentEnemy.animation = currentEnemy.defaultAnimation;},50)
                 player.bulletArray.remove(bullet);
             }
         })
