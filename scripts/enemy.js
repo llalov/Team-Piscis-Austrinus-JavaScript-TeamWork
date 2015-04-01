@@ -42,7 +42,7 @@
             currentEnemy.width = 113.4;
             currentEnemy.height = 126.5;
             currentEnemy.animation = currentEnemy.explosionAnimation;
-            setTimeout(function(){enemies.remove(currentEnemy);},500);
+            setTimeout(function(){enemies.remove(currentEnemy);},400);
 
         }
 

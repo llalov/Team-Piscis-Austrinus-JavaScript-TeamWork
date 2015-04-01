@@ -8,6 +8,7 @@ var Player = (function(){
         this.velocity = 8;
         this.fireCooldown = false;
         this.bulletArray = [];
+        this.level = 0;
 
         this.width = 60;
         this.height = 100;

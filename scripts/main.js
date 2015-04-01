@@ -8,7 +8,7 @@ var input = new Input();
 attachListeners(input);
 
 var player = new Player(400, 500);
-var enemies = createEnemies(6,2,100,85);
+var enemies = levelSelect(player.level);
 
 
 function update(){
@@ -39,7 +39,10 @@ function tick(){
             bullet.shoot();
         })
     });
-
+    if(enemies.length === 0){
+        player.level++;
+        enemies = levelSelect(player.level);
+    }
 }
 
 function render(ctx){
