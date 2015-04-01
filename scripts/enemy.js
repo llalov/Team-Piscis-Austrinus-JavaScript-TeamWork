@@ -36,11 +36,14 @@
             enemies.remove(this);
         }
 
+
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;
         this.animation.update();
-		this.fireBullet();
+        if(Math.floor((Math.random() * 9) + 1) === 3) {
+            this.fireBullet();
+        }
     };
     Enemy.prototype.render = function (ctx) {
         this.animation.draw(ctx);
