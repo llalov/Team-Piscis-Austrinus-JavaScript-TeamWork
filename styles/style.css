@@ -15,7 +15,7 @@ canvas{
 #SplashScreen{
     width: 800px;
     height: 600px;
-    background-color: black;
+    background-image: url("../ressources/images/menuBG.jpg");
     color: white;
     text-align: center;
 }
@@ -27,8 +27,9 @@ canvas{
 
 #SplashScreen input[type = button]{
     padding: 20px 10px;
-    background-color: black;
-    color: white;
+    background-image: url("../ressources/images/start.jpg");
     border: none;
-    font-size: 3em;
+	width : 204px;
+	height : 204px;
+	margin-top : 200px;
 }

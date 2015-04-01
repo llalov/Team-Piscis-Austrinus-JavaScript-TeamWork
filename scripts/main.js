@@ -2,7 +2,7 @@
 var ctx = canvas.getContext('2d');
 
 var audio = new Audio('ressources/music/song.mp3');
-audio.play();
+//audio.play();
 
 var input = new Input();
 attachListeners(input);
