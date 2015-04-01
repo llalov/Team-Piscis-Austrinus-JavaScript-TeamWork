@@ -26,6 +26,13 @@ function tick(){
         bullet.update();
         bullet.shoot();
     })
+	enemy.bulletArray.forEach(function(bullet){
+        if(bullet.position.y > 600){
+            player.bulletArray.remove(bullet);
+        }
+        bullet.update();
+        bullet.shoot();
+    })
 }
 
 function render(ctx){
@@ -34,6 +41,9 @@ function render(ctx){
 	enemy.render(ctx);
 	explosion.render(ctx);
     player.bulletArray.forEach(function(bullet){
+        bullet.render(ctx);
+    })
+	 enemy.bulletArray.forEach(function(bullet){
         bullet.render(ctx);
     })
 }
