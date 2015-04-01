@@ -64,7 +64,7 @@ var Player = (function(){
                 if(currentPlayer.boundingBox.intersects(bullet.boundingBox)){                           
                     currentPlayer.hitCounter++;                                                          
                     currentPlayer.animation = currentPlayer.flashAnimation;                              
-                    setTimeout(function(){currentPlayer.animation = currentPlayer.defaultAnimation;},50); 
+                    setTimeout(function(){currentPlayer.animation = currentPlayer.defaultAnimation;},500); 
                     enemy.bulletArray.remove(bullet);                                                  
                 }                                                                                       
             })
