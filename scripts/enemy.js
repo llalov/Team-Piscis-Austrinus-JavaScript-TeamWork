@@ -4,8 +4,8 @@
         this.height = 85;
         this.velocity = 1;
 		this.fireCooldown = false;
-        this.velocityModifier = 0;
 		this.bulletArray = [];
+        this.moveCounter = 1;
 
         this.position = new Vector2(x, y);
         this.animation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2.png',1,0,0);
@@ -13,7 +13,17 @@
     }
 
     Enemy.prototype.update = function () {
-        this.position.y += this.velocity + this.velocityModifier;
+        if(this.moveCounter <=30){
+            this.moveCounter++;
+            this.position.x += this.velocity;
+        }
+        else if(this.moveCounter <=61){
+            this.moveCounter++;
+            this.position.x -= this.velocity;
+        }
+        else{
+            this.moveCounter=0;
+        }
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;
@@ -24,18 +34,60 @@
         this.animation.draw(ctx);
     };
 	   Enemy.prototype.fireBullet = function(){
-        console.log(this.fireCooldown);
         if(this.fireCooldown === false){
-            var bull = new Bullet(this.position.x,this.position.y, -12);
+            var bull = new Bullet(this.position.x,this.position.y, -12),
+                enemy = this;
             this.bulletArray.push(bull);
             this.fireCooldown = true;
             window.setTimeout(function(){
                 enemy.fireCooldown = false;
             },2000);
-        }else{
-
         }
     };
-
     return Enemy
 }());
+
+function createEnemies(perLine, lines, enemyWidth, enemyHeight){
+    var lineLength = canvas.width,
+        maxEnemiesPerLine = parseInt(lineLength / enemyWidth),
+        enemies = [];
+    if(perLine > maxEnemiesPerLine){return undefined;}
+    var spacing = (lineLength - enemyWidth * perLine)/(perLine + 1),
+        x = spacing-8,
+        y = 10;
+
+    for(var i = 0; i < lines; i++){
+        for(var j = 0; j< perLine; j++){
+            enemies.push(new Enemy(x , y))
+            x+=spacing+enemyWidth;
+        }
+        x = spacing-8;
+        y+=enemyHeight + 10;
+    }
+    return enemies;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

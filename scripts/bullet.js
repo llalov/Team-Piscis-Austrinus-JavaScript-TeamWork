@@ -28,7 +28,6 @@ var Bullet = (function(){
 
     Bullet.prototype.shoot = function () {
         this.position.y -= this.velocity;
-
     };
     return Bullet;
 }());
