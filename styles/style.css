@@ -27,7 +27,7 @@ canvas{
 
 #SplashScreen input[type = button]{
     padding: 20px 10px;
-    background-image: url("../ressources/images/start.jpg");
+    background-image: url("../ressources/images/startButton.jpg");
     border: none;
 	width : 204px;
 	height : 204px;
