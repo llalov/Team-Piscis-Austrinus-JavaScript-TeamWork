@@ -10,6 +10,7 @@ var Player = (function(){
         this.bulletArray = [];
         this.level = 0;
 		this.hitCounter = 0;
+		this.isAlive = true;
 
         this.width = 60;
         this.height = 100;
@@ -70,14 +71,15 @@ var Player = (function(){
         if(this.hitCounter >= 3){                                                                   
             currentPlayer.velocity = 0;                                                              
             currentPlayer.width = 113.4;                                                           
-            currentPlayer.height = 126.5;                                                            
+            currentPlayer.height = 126.5;
+			currentPlayer.isAlive = false;
             currentPlayer.animation = currentPlayer.explosionAnimation;                             
             setTimeout(function(){player.remove(currentPlayer);},400);                              
   
         }                                                                                           
  
 		
-        if(this.movement.fire){
+        if(this.movement.fire && this.isAlive == true){
 
             this.fireBullet();
         }
