@@ -236,16 +236,6 @@ var Color = (function(){
 
 var Rectangle = (function() {
     function Rectangle(x, y, w, h) {
-        if(!x || !y || !w || !h) {
-            var errorMsg = "Missing:";
-            if(!x) errorMsg += " 'x' ";
-            if(!y) errorMsg += " 'y' ";
-            if(!w) errorMsg += " 'w' ";
-            if(!h) errorMsg += " 'h' ";
-
-            throw new Error(errorMsg);
-        }
-
         this.x = x;
         this.y = y;
         this.width = w;

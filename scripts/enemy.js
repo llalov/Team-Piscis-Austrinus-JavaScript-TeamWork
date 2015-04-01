@@ -6,6 +6,7 @@
 		this.fireCooldown = false;
 		this.bulletArray = [];
         this.moveCounter = 1;
+        this.hitCounter = 0;
 
         this.position = new Vector2(x, y);
         this.animation = new Animation(this.width, this.height, 0, 0, 1,'ressources/images/enemy2.png',1,0,0);
@@ -24,6 +25,17 @@
         else{
             this.moveCounter=0;
         }
+        var currentEnemy = this;
+        player.bulletArray.forEach(function(bullet){
+            if(currentEnemy.boundingBox.intersects(bullet.boundingBox)){
+                currentEnemy.hitCounter++;
+                player.bulletArray.remove(bullet);
+            }
+        })
+        if(this.hitCounter >= 3){
+            enemies.remove(this);
+        }
+
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;

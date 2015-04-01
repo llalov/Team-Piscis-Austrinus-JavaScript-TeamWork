@@ -1,6 +1,9 @@
 ﻿var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+var audio = new Audio('ressources/music/song.mp3');
+audio.play();
+
 var input = new Input();
 attachListeners(input);
 
