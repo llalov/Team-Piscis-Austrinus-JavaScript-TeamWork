@@ -9,12 +9,14 @@ var Player = (function(){
         this.fireCooldown = false;
         this.bulletArray = [];
         this.level = 0;
+		this.hitCounter = 0;
 
         this.width = 60;
         this.height = 100;
 
         this.animation = new Animation(this.width, this.height, 0, 0, 1, 'ressources/images/F5S4.png', 1, 0, 0);
         this.boundingBox = new Rectangle(x, y, this.width, this.height);
+		this.explosionAnimation = new Animation(113.4, 126.5, 0, 5, 23, 'ressources/images/exp.png', 20, 8, 4);
         //Background.prototype.canvasWidth = this.canvas.width;
 
     }
@@ -52,7 +54,29 @@ var Player = (function(){
                 this.position.y = canvas.height - this.height;
             }
         }
-
+		
+		var currentPlayer = this;
+        enemies.forEach(function(enemy) {
+            enemy.bulletArray.forEach(function(bullet){                                                
+                if(currentPlayer.boundingBox.intersects(bullet.boundingBox)){                           
+                    currentPlayer.hitCounter++;                                                          
+                    //currentPlayer.animation = currentPlayer.flashAnimation;                              
+                    //setTimeout(function(){currentPlayer.animation = currentPlayer.defaultAnimation;},50); 
+                    enemy.bulletArray.remove(bullet);                                                  
+                }                                                                                       
+            })
+        });                                                                                           
+        
+        if(this.hitCounter >= 3){                                                                   
+            currentPlayer.velocity = 0;                                                              
+            currentPlayer.width = 113.4;                                                           
+            currentPlayer.height = 126.5;                                                            
+            currentPlayer.animation = currentPlayer.explosionAnimation;                             
+            setTimeout(function(){player.remove(currentPlayer);},400);                              
+  
+        }                                                                                           
+ 
+		
         if(this.movement.fire){
 
             this.fireBullet();
