@@ -51,7 +51,8 @@
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;
         this.animation.update();
-        if(Math.floor((Math.random() * 9) + 1) === 3) {
+		
+        if(Math.floor((Math.random() * 9) + 1) === 3 && player.isAlive == true) {
             this.fireBullet();
         }
     };
