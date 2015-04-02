@@ -47,15 +47,16 @@ function tick(){
 
 function render(ctx){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-     player.render(ctx);
-    enemies.forEach(function(enemy){
+
+    player.render(ctx);
+    enemies.forEach(function (enemy) {
         enemy.render(ctx);
     });
-    player.bulletArray.forEach(function(bullet){
+    player.bulletArray.forEach(function (bullet) {
         bullet.render(ctx);
     })
-    enemies.forEach(function(enemy){
-        enemy.bulletArray.forEach(function(bullet){
+    enemies.forEach(function (enemy) {
+        enemy.bulletArray.forEach(function (bullet) {
             bullet.render(ctx);
         })
     });

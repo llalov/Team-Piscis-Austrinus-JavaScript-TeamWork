@@ -11,7 +11,7 @@ var Bullet = (function(){
         this.height = 50;
 
         this.animation = new Animation(this.width, this.height, 2, 1, 1, 'ressources/images/shoot.png', 1, 0, 0);
-        this.boundingBox = new Rectangle(x, y, this.width, this.height);
+        this.boundingBox = new Rectangle(x, y, this.width-50, this.height);
 
     };
 
