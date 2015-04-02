@@ -76,12 +76,11 @@ var Player = (function(){
             currentPlayer.height = 126.5;
 			currentPlayer.isAlive = false;
             currentPlayer.animation = currentPlayer.explosionAnimation;
-
+            currentPlayer.level = -1;
+            enemies = [];
             setTimeout(function(){
-                enemies = [];
                 currentPlayer.hitCounter = 0;
                 currentPlayer.isAlive = true;
-                currentPlayer.level = -1;
                 currentPlayer.velocity = 8;
                 },1000);
         }                                                                                           

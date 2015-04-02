@@ -39,7 +39,7 @@ function tick(){
             bullet.shoot();
         })
     });
-    if(enemies.length === 0){
+    if(enemies.length === 0 && player.isAlive){
         player.level++;
         enemies = levelSelect(player.level);
     }
