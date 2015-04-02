@@ -71,13 +71,19 @@ var Player = (function(){
         });                                                                                           
         
         if(this.hitCounter >= 3){                                                                   
-            currentPlayer.velocity = 0;                                                              
-            currentPlayer.width = 113.4;                                                           
+            currentPlayer.velocity = 0;
+            currentPlayer.width = 113.4;
             currentPlayer.height = 126.5;
 			currentPlayer.isAlive = false;
-            currentPlayer.animation = currentPlayer.explosionAnimation;                             
-            setTimeout(function(){player.remove(currentPlayer);},400);                              
-  
+            currentPlayer.animation = currentPlayer.explosionAnimation;
+            setTimeout(function(){
+                currentPlayer.hitCounter = 0;
+                currentPlayer.isAlive = true;
+                currentPlayer.level = -1;
+                currentPlayer.velocity = 8;
+                enemies.forEach(function(enemy){
+                    enemies.remove(enemy);
+                })},1000);
         }                                                                                           
  
 		

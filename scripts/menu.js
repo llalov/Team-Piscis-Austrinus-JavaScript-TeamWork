@@ -11,5 +11,5 @@ function menu() {
     var script = document.createElement('script');
     script.src += 'scripts/main.js';
     document.getElementsByTagName('body')[0].appendChild(script);
-    console.log(document.getElementsByTagName('body')[0]);
+    //console.log(document.getElementsByTagName('body')[0]);
 };

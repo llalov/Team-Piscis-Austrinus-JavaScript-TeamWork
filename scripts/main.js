@@ -47,20 +47,19 @@ function tick(){
 
 function render(ctx){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-	if(player.isAlive == true){
-		 player.render(ctx);
-		enemies.forEach(function(enemy){
-			enemy.render(ctx);
-		});
-		player.bulletArray.forEach(function(bullet){
-			bullet.render(ctx);
-		})
-		enemies.forEach(function(enemy){
-			enemy.bulletArray.forEach(function(bullet){
-				bullet.render(ctx);
-			})
-		});
-	}
+     player.render(ctx);
+    enemies.forEach(function(enemy){
+        enemy.render(ctx);
+    });
+    player.bulletArray.forEach(function(bullet){
+        bullet.render(ctx);
+    })
+    enemies.forEach(function(enemy){
+        enemy.bulletArray.forEach(function(bullet){
+            bullet.render(ctx);
+        })
+    });
+
 }
 
 function movePlayer(){
@@ -70,6 +69,8 @@ function movePlayer(){
     player.movement.down = !!input.down;
     player.movement.fire = !!input.space;
 }
+
+
 
 update();
 

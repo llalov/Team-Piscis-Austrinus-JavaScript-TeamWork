@@ -2,8 +2,7 @@
     function Explosion(x, y) {
         this.position = new Vector2(x, y);
         this.movement = { left: false, right: false, up: false, down: false };
-        
-        
+
         this.width = 113.4;
         this.height = 126.5;
         
