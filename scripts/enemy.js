@@ -47,17 +47,17 @@
         }
 
 
-        this.animation.position.set(this.position.x, this.position.y);
-        this.boundingBox.x = this.position.x;
+        this.animation.position.set(this.position.x, this.position.y); // defines the position of the explosion anim.
+        this.boundingBox.x = this.position.x; // defines the position the bounding box
         this.boundingBox.y = this.position.y;
         this.animation.update();
 		
-        if(Math.floor((Math.random() * 9) + 1) === 3 && player.isAlive == true) {
+        if(player.isAlive == true) {
             this.fireBullet();
         }
     };
     Enemy.prototype.render = function (ctx) {
-        this.animation.draw(ctx);
+        this.animation.draw(ctx);               // draws the enemy
     };
 	   Enemy.prototype.fireBullet = function(){
         if(this.fireCooldown === false){
