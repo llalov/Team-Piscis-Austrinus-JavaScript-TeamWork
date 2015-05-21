@@ -12,9 +12,9 @@ var enemies = levelSelect(player.level);
 
 
 function update(){
-    this.tick();
-    this.render(ctx);
-    requestAnimationFrame(update);
+    this.tick(); // updates positions of players, enemies, bullets, lives etc. (everything);
+    this.render(ctx); // draws the players, enemies and bullets on the canvas (ctx)
+    requestAnimationFrame(update); // creating the animation
 };
 
 function tick(){
