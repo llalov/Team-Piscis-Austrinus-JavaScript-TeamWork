@@ -16,22 +16,22 @@
         this.explosionAnimation = new Animation(113.4, 126.5, 0, 5, 23, 'ressources/images/exp.png', 20, 8, 4);
     }
 
-    Enemy.prototype.update = function () {
+    Enemy.prototype.update = function () { // Makes 30 iterations and with each iteration x position changes += 1;
         if(this.moveCounter <=30){
             this.moveCounter++;
             this.position.x += this.velocity;
         }
-        else if(this.moveCounter <=61){
+        else if(this.moveCounter <=61){ // when moveCounter is over 30 to 61, makes 30 iterations and with each x -= 1;
             this.moveCounter++;
             this.position.x -= this.velocity;
         }
         else{
             this.moveCounter=0;
         }
-        var currentEnemy = this;
-        player.bulletArray.forEach(function(bullet){
-            if(currentEnemy.boundingBox.intersects(bullet.boundingBox)){
-                currentEnemy.hitCounter++;
+        var currentEnemy = this; 
+        player.bulletArray.forEach(function(bullet){ 
+            if(currentEnemy.boundingBox.intersects(bullet.boundingBox)){// checks if playes bullet intersecs bounding box
+                currentEnemy.hitCounter++;                                
                 currentEnemy.animation = currentEnemy.flashAnimation;
                 setTimeout(function(){currentEnemy.animation = currentEnemy.defaultAnimation;},50);
                 player.bulletArray.remove(bullet);
